@@ -3,11 +3,12 @@ package APIJDBC;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class Connexion {
 
-	public static void main(String[] argv) {
+	public static void main(String[] argv) throws SQLException {
 
 		System.out.println("-------- PostgreSQL "
 				+ "JDBC Connection Testing ------------");
@@ -48,6 +49,11 @@ public class Connexion {
 
 		if (connection != null) {
 			System.out.println("You made it, take control your database now!");
+			
+			Statement state = connection.createStatement();
+			String requete="SELECT * FROM adult;";
+			state.executeUpdate(requete);
+			
 		} else {
 			System.out.println("Failed to make connection!");
 		}
