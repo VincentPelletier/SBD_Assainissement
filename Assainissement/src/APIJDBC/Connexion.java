@@ -36,7 +36,7 @@ public class Connexion {
 		String mdp = sc.next();
 		sc.close();
 			connection = DriverManager.getConnection(
-					"jdbc:postgresql://localhost/base_projet_sbd", "postgres",
+					"jdbc:postgresql://localhost:5434/adult", "postgres",
 					mdp);
 			
 		} catch (SQLException e) {
