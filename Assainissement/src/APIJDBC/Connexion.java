@@ -1,6 +1,7 @@
 package APIJDBC;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,7 +9,9 @@ import java.util.Scanner;
 
 public class Connexion {
 
-	public static void main(String[] argv) throws SQLException {
+	Connection connexion;
+	
+	public static void main(String[] args) throws SQLException {
 
 		System.out.println("-------- PostgreSQL "
 				+ "JDBC Connection Testing ------------");
@@ -22,7 +25,6 @@ public class Connexion {
 			System.out.println("Where is your PostgreSQL JDBC Driver? "
 					+ "Include in your library path!");
 			e.printStackTrace();
-			return;
 
 		}
 
@@ -43,16 +45,17 @@ public class Connexion {
 
 			System.out.println("Connection Failed! Check output console");
 			e.printStackTrace();
-			return;
 
 		}
 
 		if (connection != null) {
 			System.out.println("You made it, take control your database now!");
-			
-			Statement state = connection.createStatement();
-			String requete="SELECT * FROM adult;";
-			state.executeUpdate(requete);
+			Statement statement = connection.createStatement();
+			ResultSet res = statement.executeQuery("SELECT \"education\" FROM \"adult\"");
+			System.out.println(res);
+			while(res.next()){
+				System.out.println(res.getString(1));
+			}
 			
 		} else {
 			System.out.println("Failed to make connection!");
