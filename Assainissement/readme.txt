@@ -33,7 +33,7 @@ COPY adult FROM 'C:\Program Files (x86)\PostgreSQL\10\data\adult.txt' DELIMITER 
 • Effectuez un clic droit sur votre java project -> Build path -> add Externals Jars et ajoutez le driver téléchargé.
 • Effectuez votre connexion JDBC en cliquant sur run sur le fichier Connexion.java et suivez les instructions, et attention a bien pointé sur le bon port de votre database.
 
-La connexion est maintenant prête, 
+La connexion est maintenant prête, suivez les instructions de la console et observez les résultats.
 
 
 • 
