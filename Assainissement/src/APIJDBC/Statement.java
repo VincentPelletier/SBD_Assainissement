@@ -31,6 +31,29 @@ public class Statement {
 		}
 		return resset;
 	}
+	
+	public double bruit() {
+		double bruit = 0;
+		double min;
+		min = -0.5;
+		double max;
+		max = 0.5;
+		
+		double nombreAleatoire = min + (double)(Math.random() * ((max - min) + 1));
+		
+		int signe;
+		if(nombreAleatoire > 0) {
+			signe = 1;
+		}else if(nombreAleatoire < 0) {
+			signe = -1;
+		}else {
+			signe = 0;
+		}
+		
+		bruit = - (1*signe)*Math.log(1 - 2 * Math.abs(nombreAleatoire));
+		
+		return bruit;
+	}
 
 	public int getBudget() {
 		return budget;
